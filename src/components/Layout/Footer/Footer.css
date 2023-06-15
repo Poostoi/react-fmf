@@ -1,0 +1,43 @@
+.footer {
+	width: 100%;
+	height: 200px;
+	padding: 2.5rem 0;
+	background-color: #1e1e1e;
+}
+
+.contacts {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem 0;
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.contacts-address {}
+.contacts-phone {}
+.contacts-email {}
+	
+.contacts-social {
+	cursor: pointer;
+}
+
+.contacts-social > a {
+	text-decoration: none;
+	color: #fff;
+	margin-left: 10px;
+	opacity: 1;
+	transition: opacity .3s ease;
+}
+
+.contacts-social > a:hover {
+	opacity: .7;
+}
+
+.copyright {
+	color: #a3a7ab;
+	font-size: .9rem;
+}

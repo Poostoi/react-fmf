@@ -1,0 +1,32 @@
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	font-family: Arial, sans-serif;
+	overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  	width: 5px;               
+}
+
+body::-webkit-scrollbar-track {
+  	background: #f1f1f1;       
+}
+
+body::-webkit-scrollbar-thumb {
+	  background-color: #292c33;   
+	  border-radius: 10px;       
+	  border: 1px solid #292c33;  
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}

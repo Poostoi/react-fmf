@@ -1,0 +1,226 @@
+.path {
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    display: flex;
+}
+
+.path_item {
+    display: flex;
+    margin-left: 10px;
+}
+
+.path_item:first-child {
+    margin-left: 0;
+}
+
+.path_link {
+    margin-right: 5px;
+    text-decoration: none;
+	color: #8f8f94;
+	font-size: .9rem;
+	font-weight: 400;
+	transition: color .2s ease;
+}
+
+.path_link:last-child {
+    font-weight: 600;
+    color: #424347;
+}
+
+.path_link:last-child:hover {
+    color: #424347;
+}
+
+.path_link:hover {
+	color: #4180db;
+}
+
+.path_arrow > i {
+    color: #8f8f94;
+    font-size: 1.1rem;
+}
+
+.search-direction {
+    position: relative;
+    width: 100%;
+}
+
+.search-direction .placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 72px;
+    color: #424347;
+	font-size: 1.2rem;
+	font-weight: 400;
+    visibility: hidden;
+}
+
+.search-direction .placeholder.show {
+    visibility: visible;
+}
+
+.search-direction_input {
+    outline: none;
+    width: 100%;
+    background: #eff0f2;
+    border: 1.5px solid #eff0f2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 70px;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    transition: all .3s ease;
+}
+
+.search-direction_input:focus {
+    border: 1.5px solid #4180db;
+    background: #fff;
+}
+
+.search-direction_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    left: 20px;
+}
+
+.search-direction_icon > i {
+    font-size: 1.6rem;
+    color: #999a9e;
+}
+
+
+.list-direction {
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    width: 100%;
+    display: flex;
+    align-items: self-start;
+    justify-content: space-between;
+}
+
+.list-direction_filter {
+    width: 30%;
+}
+
+.list-direction_filter h3 {
+    margin-bottom: 1rem;
+    color: #1a1a19;
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.filter_item {
+    margin-bottom: 15px;
+}
+
+.filter_item > label {
+    color: #424347;
+    font-size: 16px;
+	font-weight: 600;
+}
+
+.filter_item > .checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.filter_item > .checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.filter_item > .checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #eff0f2;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    background-color: #eff0f2;
+    transition: all .2s ease;
+}
+
+.filter_item:hover > .checkbox+label::before {
+    background-color: #c6c6cc;
+}
+
+.filter_item > .checkbox:checked+label::before {
+    border-color: #4180db;
+    background-color: #4180db;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.list-direction_items {
+    width: 75%;
+}
+
+.list-direction_items-card {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    box-shadow: 0 3px 66px rgba(125,143,179,0.2);
+    padding: 30px 30px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border .3s ease;
+}
+
+.list-direction_items-card:hover {
+    border: 1px solid #4180db;
+}
+
+.list-direction_items-card .card-title {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.list-direction_items-card .card-title>h3 {
+    color: #292c33;
+	font-size: 1.5rem;
+}
+
+.list-direction_items-card .card-title>p {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    color: #4180db;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.list-direction_items-card .card-title>p>i {
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+
+.list-direction_items-card .card-desc {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: #999a9e;
+}
+
+.list-direction_items-card .card-mark {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    font-weight: 600;
+    color: #424347;
+    font-size: .9rem;
+}

@@ -1,0 +1,56 @@
+.course_year {
+    margin-bottom: 3.5em;
+}
+
+.course_year > p {
+    margin-bottom: 10px;
+    color: #307fee;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.course_year > h3 {
+    color: #424347;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.course_read {
+    margin-bottom: 35px;
+}
+
+.course_read > h4 {
+    margin-bottom: 10px;
+    color: #292c33;
+    font-size: 1.4rem;
+}
+
+.course_read > p {
+    color: #8f8f94;
+    font-weight: 600;
+}
+
+.course_when {
+    margin-bottom: 35px;
+}
+
+.course_when > h4 {
+    margin-bottom: 10px;
+    color: #292c33;
+    font-size: 1.4rem;
+}
+
+.course_when > p {
+    color: #8f8f94;
+    font-weight: 600;
+}
+
+.course_teachers {
+    margin-bottom: 4em;
+}
+
+.course_teachers > h4 {
+    margin-bottom: 10px;
+    color: #292c33;
+    font-size: 1.4rem;
+}

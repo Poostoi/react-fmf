@@ -1,0 +1,32 @@
+.documents-exams {
+
+}
+
+.documents-exams .document {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 20px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.documents-exams .document_icon {
+    margin-right: 10px;
+    font-size: 2.5rem;
+}
+
+.documents-exams .document_icon > i {
+    color: #8f8f94;
+}
+
+.documents-exams .document_name {
+    color: #4180db;
+    font-size: 1.2rem;
+    transition: color .3s ease;
+}
+
+.documents-exams .document:hover .document_name {
+    color: #0b418b;
+}

@@ -1,0 +1,350 @@
+.main {
+	width: 100%;
+	padding: 2.5em 0;
+}
+
+.background {
+	width: 100%;
+	height: 600px;
+	/* background-image: url("/bg-fmf.jpg"); */
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.navigation {
+	margin-bottom: 2em;
+}
+
+.navigation > ul {
+	list-style: none;
+}
+
+.navigation > ul > li {
+	display: inline-block;
+	/*padding: 0 1.5em;*/
+	color: #292c33;
+	font-size: .9rem;
+	
+}
+
+.navigation > ul > li > i {
+	font-size: 1.1rem;
+	vertical-align: middle;
+}
+
+.navigation > ul > li > span {
+	transition: color .2s ease;
+}
+
+.navigation > ul > li:first-child {
+	padding-left: 0;
+	color: #8f8f94;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.navigation > ul > li > span:first-child:hover {
+	color: #4180db;
+}
+
+.title {
+	width: 70%;
+	margin-bottom: 3rem;
+	color: #292c33;
+	font-size: 3rem;
+}
+
+/* === CARDS START === */
+
+.cards {
+	margin-bottom: 3em;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.card {
+	margin-bottom: 1.5em;
+	position: relative;
+	width: 35%;
+	min-height: 120px;
+	border-radius: 4px;
+  	padding: 2em 1.75em;
+  	box-shadow: 0 3px 66px rgba(125,143,179,0.2);
+  	overflow: hidden;
+  	cursor: pointer;
+}
+
+.card::before {
+	content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #4180db;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.35s ease-out;
+}
+
+.card:hover::before {
+	transform: scale(28);
+}
+
+.card .card-title {
+	color: #292c33;
+	font-size: 1.2rem;
+}
+
+.card:hover > .card-title {
+	transition: all 0.3s ease-out;
+    color: #ffffff;
+}
+
+.card .card-corner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	width: 38px;
+	height: 38px;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	background-color: #4180db;
+	border-radius: 0 4px 0 38px;
+}
+
+.card .card-corner_arrow > i {
+	color: #fff;
+	transform: rotate(135deg);
+	font-size: 1.5rem;
+}
+
+
+.card-1 {
+	display: block;
+	text-decoration: none;
+	top: 0;
+	margin-bottom: 1.5em;
+	position: relative;
+	width: 35%;
+	min-height: 120px;
+	border-radius: 4px;
+  	padding: 2em 1.75em;
+  	box-shadow: 0 3px 66px rgba(125,143,179,0.2);
+  	overflow: hidden;
+  	cursor: pointer;
+  	transition: all .3s ease-out;
+}
+
+.card-1:hover {
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+}
+
+.card-1-title {
+	color: #292c33;
+	font-size: 1.3rem;
+	transition: all .2s ease-out;
+}
+
+.card-1-more {
+	position: absolute;
+	bottom: 5px;
+	display: flex;
+	color: #292c33;
+	font-size: 1.1rem;
+	transform: translateY(40px);
+	transition: all .3s ease-out;
+	opacity: 0;
+}
+
+.card-1:hover .card-1-more {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+.card-1:hover .card-1-title {
+	color: #4180db;
+}
+
+.card-1-more_arrow {
+	margin-left: 10px;
+}
+
+.card-1-more_arrow > i {
+	/*vertical-align: middle;*/
+	transform: rotate(180deg);
+}
+
+/* === CARDS END === */
+
+/* === DIRECTIONS START === */
+
+.directions {
+	margin-bottom: 4em;
+	width: 100%;
+	/*box-shadow: 0 2px 66px rgba(125,143,179,0.15);*/
+}
+
+.directions-item {
+    padding: 2em;
+	background-color: #fff;
+	box-shadow: 0 8px 27px rgba(125,143,179,0.7);
+}
+
+.directions-item:first-child {
+	border-radius: .5rem .5rem 0 0;
+}
+
+.directions-item:last-child {
+	border-radius: 0 0 .5rem .5rem;
+}
+
+
+.directions-item_header {
+	display: block;
+	padding: 2rem 3rem;
+	min-height: 5.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	font-size: 1.8rem;
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.directions-item_header-number {
+	color: #bbbcc4;
+	font-size: 2.3rem;
+	font-weight: 600;
+	transition: color .2s ease;
+}
+.directions-item_header-title {
+	width: 85%;
+	color: #292c33;
+	font-size: 1.9rem;
+	font-weight: 300;
+}
+
+.arrow {
+	color: #bbbcc4;
+	font-size: 2.9rem;
+	transition: color .3s ease;
+}
+
+.arrow.down {
+	color: #4180db;
+}
+
+.directions-item_header:hover .directions-item_header-number {
+	color: #4180db;
+}
+
+.directions-item_header:hover .arrow {
+	color: #4180db;
+}
+
+.directions-item_body {
+	/* overflow: hidden;
+	max-height: 0; */
+    overflow: visible;
+	max-height: auto;
+	padding: 0 3rem;
+	cursor: pointer;
+	transition: max-height 1.3s ease, padding-top 1s ease, padding-bottom 1s ease;
+}
+
+.directions-item_body-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.directions-item_body-content {
+	width: 60%;
+}
+
+.directions-item_body-bg {
+	width: 35%;
+	height: 300px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: .5rem;
+}
+
+.directions-item_body-number {
+	color: #4180db;
+	font-size: 2.3rem;
+	font-weight: 600;
+	transition: color .2s ease;
+}
+
+.directions-item_body-title {
+	margin: 3rem 0 1.5rem 0;
+	color: #292c33;
+	font-size: 1.9rem;
+	font-weight: 600;
+}
+
+.directions-item_body-text {
+	color: #292c33;
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
+.directions-item_body-select {
+	margin-top: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.btn {
+	text-decoration: none;
+	outline: none;
+	background-color: #fff;
+	padding: .75rem 2.1rem;
+	color: #292c33;
+	font-size: 1rem;
+	border: 2px solid #4180db;
+	border-radius: 1.5rem;
+	cursor: pointer;
+	transition: border-color .5s ease, background-color .5s ease, color .5s ease;
+}
+
+.btn:hover {
+	background-color: #4180db;
+	color: #fff;
+	border-color: transparent;
+}
+
+.directions-item.show > .directions-item_header {
+	transition: opacity 0.5s ease, visibility 0.5s ease;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.directions-item.show > .directions-item_body {
+	transition: max-height 1.1s ease, padding-top 1.1s ease, padding-bottom 1.1s ease;
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+}
+
+/* === DIRECTIONS END === */
+
+@keyframes op {
+	0% {opacity: 0;}
+	50% {opacity: 0.5;}
+	100% {opacity: 1;}	
+}
