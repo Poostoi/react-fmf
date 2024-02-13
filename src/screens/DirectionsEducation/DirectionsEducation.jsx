@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+
+import axios from "axios";
 import Header from "../../components/Layout/Header/Header"
 import { useEffect, useState } from "react"
 import CardDirection from "../../components/UI/CardDirection/CardDirection"
@@ -10,7 +12,16 @@ function DirectionsEducation() {
 
     const [isLoading, setIsLoading] = useState(true)
 
-    const fetchData = () => {
+    const fetchData = async () => {
+        await axios({method: "get", url: "https://localhost:7085/api/Direction"})
+        .then((e) => {
+          console.log(e.data);
+          //let test = FormatToArray(e.data);
+          console.log(e);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
         fetch('/data.json')
             .then(res => res.json())
             .then(data => {

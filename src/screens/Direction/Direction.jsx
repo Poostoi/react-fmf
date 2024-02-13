@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import axios from "axios";
 import { Link, useLocation, useParams } from "react-router-dom"
 import Header from "../../components/Layout/Header/Header"
 import './Direction.css'
@@ -13,7 +14,16 @@ function Direction() {
 
     const [isLoading, setIsLoading] = useState(true)
 
-    const fetchDirectionById = () => {
+    const fetchDirectionById = async () => {
+        await axios({method: "get", url: "https://localhost:7085/api/Direction"})
+        .then((e) => {
+          console.log(e.data);
+          //let test = FormatToArray(e.data);
+          console.log(e);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
         fetch('/data.json')
             .then(res => res.json())
             .then(data => {
