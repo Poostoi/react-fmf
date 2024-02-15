@@ -13,25 +13,30 @@ function DirectionsEducation() {
     const [isLoading, setIsLoading] = useState(true)
 
     const fetchData = async () => {
-        await axios({method: "get", url: "https://localhost:7085/api/Direction"})
-        .then((e) => {
-          console.log(e.data);
-          //let test = FormatToArray(e.data);
-          console.log(e);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-        fetch('/data.json')
-            .then(res => res.json())
-            .then(data => {
+        await axios({ method: "get", url: "https://localhost:7085/api/Direction" })
+            .then((e) => {
+                
+                
                 setTimeout(() => {
-                    console.log(data.data)
-                    setDirections(data.data)
+                    console.log(e.data);
+                    setDirections(e.data)
 
                     setIsLoading(false)
                 }, 500)
             })
+            .catch((error) => {
+                console.log(error);
+            });
+        // fetch('/data.json')
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setTimeout(() => {
+        //             //console.log(data.data)
+        //             setDirections(data.data)
+
+        //             setIsLoading(false)
+        //         }, 500)
+        //     })
     }
 
     useEffect(() => {
@@ -51,7 +56,7 @@ function DirectionsEducation() {
                     </div>
                     <div className="path_item">
                         <p className="path_link">Направления обучения</p>
-                    </div>       
+                    </div>
                 </div>
                 <h1 className="title">Направления обучения</h1>
                 <div className="directions">

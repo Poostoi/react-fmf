@@ -27,7 +27,7 @@ function Direction() {
         fetch('/data.json')
             .then(res => res.json())
             .then(data => {
-                const id = state.directionsId
+                const id = 1//state.directionsId
                 const directions = data.data.find(item => item.id === Number(id))
                 setDirection(directions?.directions.find(d => d.id === Number(directionId)))
 
