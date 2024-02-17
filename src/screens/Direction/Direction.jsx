@@ -15,24 +15,28 @@ function Direction() {
     const [isLoading, setIsLoading] = useState(true)
 
     const fetchDirectionById = async () => {
-        await axios({method: "get", url: "https://localhost:7085/api/Direction"})
-        .then((e) => {
-          console.log(e.data);
-          //let test = FormatToArray(e.data);
-          console.log(e);
-        })
+        console.log(state.directionsId)
+        await axios({ method: "get", url: "https://localhost:7085/api/Direction/GetByDivision?id="+state.directionsId })
+            .then((e) => {               
+                
+                    console.log(e.data);
+                    //const directions = e.data
+                    setDirection(e.data)
+                    setIsLoading(false)
+            })
         .catch((error) => {
           console.log(error);
         });
-        fetch('/data.json')
-            .then(res => res.json())
-            .then(data => {
-                const id = 1//state.directionsId
-                const directions = data.data.find(item => item.id === Number(id))
-                setDirection(directions?.directions.find(d => d.id === Number(directionId)))
+        
+        // fetch('/data.json')
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         const id = state.directionsId
+        //         const directions = data.data.find(item => item.id === Number(id))
+        //         setDirection(directions?.directions.find(d => d.id === Number(directionId)))
 
-                setIsLoading(false)
-            })
+                
+        //     })
     }
 
     useEffect(() => {

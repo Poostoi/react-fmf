@@ -13,7 +13,7 @@ function DirectionsEducation() {
     const [isLoading, setIsLoading] = useState(true)
 
     const fetchData = async () => {
-        await axios({ method: "get", url: "https://localhost:7085/api/Direction" })
+        await axios({ method: "get", url: "https://localhost:7085/api/Division/GetAll" })
             .then((e) => {
                 
                 
