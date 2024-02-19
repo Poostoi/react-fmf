@@ -20,14 +20,13 @@ function Direction() {
             .then((e) => {               
                 
                     console.log(e.data);
-                    //const directions = e.data
                     setDirection(e.data)
                     setIsLoading(false)
             })
         .catch((error) => {
           console.log(error);
         });
-        
+         
         // fetch('/data.json')
         //     .then(res => res.json())
         //     .then(data => {

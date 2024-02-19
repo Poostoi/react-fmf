@@ -15,7 +15,7 @@ function CardDirection({direction}) {
           <div
             className="directions-item_body-bg"
             style={{
-                backgroundImage: `url(/${direction.image})`
+                backgroundImage: `url(/images/logo.png)`   //${direction.image}
             }}
           ></div>
         </div>

@@ -13,10 +13,8 @@ function DirectionsEducation() {
     const [isLoading, setIsLoading] = useState(true)
 
     const fetchData = async () => {
-        await axios({ method: "get", url: "https://localhost:7085/api/Division/GetAll" })
+        await axios({ method: "get", url: "https://localhost:7085/api/GeneralDirection/GetAll" })
             .then((e) => {
-                
-                
                 setTimeout(() => {
                     console.log(e.data);
                     setDirections(e.data)
