@@ -12,24 +12,27 @@ function Directions() {
 
     const [isLoading, setIsLoading] = useState(true)
 
-    const [isChecked, setIsChecked] = useState({ bachelor: false, master: false })
+    const [isChecked, setIsChecked] = useState({ bachelor: false, master: false, speciality: false })
 
     const changeDirectionsHandler = useCallback(() => {
-        if (!isChecked.bachelor && !isChecked.master) {
-            setFilteredDirections(directions)
-        } else if (isChecked.bachelor && isChecked.master) {
-            setFilteredDirections(directions)
-        } else if (isChecked.bachelor) {
-            setFilteredDirections(directions.filter(d => d.form === 'бакалавриат'))
-        } else if (isChecked.master) {
-            setFilteredDirections(directions.filter(d => d.form === 'магистратура'))
+        if (!isChecked.bachelor && !isChecked.master && !isChecked.speciality) {
+            setFilteredProfiles(profiles)
+        } else if (isChecked.bachelor && isChecked.master && isChecked.speciality) {
+            setFilteredProfiles(profiles)
+        } else if (isChecked.bachelor) { //бакалавриат
+            setFilteredProfiles(profiles.filter(p => p.specificationsList[0].levelEducation === 0))
+        } else if (isChecked.master) {  //магистратура
+            setFilteredProfiles(profiles.filter(p => p.specificationsList[0].levelEducation === 1))
+        }else if (isChecked.speciality) {  //специалитет
+            setFilteredProfiles(profiles.filter(p => p.specificationsList[0].levelEducation === 2))
+            console.log(filteredProfiles)
         }
 
     }, [isChecked])
 
-    const [filteredDirections, setFilteredDirections] = useState([])
-    const [directions, setDirections] = useState([])
-    const [nameDirection, setNameDirection] = useState('')
+    const [filteredProfiles, setFilteredProfiles] = useState([])
+    const [profiles, setProfiles] = useState([])
+    const [nameGeneralDirection, setNameGeneralDirection] = useState('')
     const [classPlaceholder, setClassPlaceholder] = useState(['placeholder'])
 
     const fetchDirectionsById = useCallback(async () => {
@@ -37,9 +40,12 @@ function Directions() {
         await axios({ method: "get", url: "https://localhost:7085/api/Direction/GetByGeneralDirection?id=" + directionsId })
             .then((e) => {
                 console.log(e.data);
-                setDirections(e.data)
-                setFilteredDirections(e.data)
-                setNameDirection(e.data[0].generalDirection.name)
+                let array_profiles = []
+                e.data.forEach((k)=> k.profiles.forEach((e)=>{e.nameDirection = k.name; array_profiles.push(e);}))
+                console.log(array_profiles);
+                setProfiles(array_profiles)
+                setFilteredProfiles(array_profiles)
+                setNameGeneralDirection(e.data[0].generalDirection.name)
                 setIsLoading(false)
 
             })
@@ -113,22 +119,27 @@ function Directions() {
                                         checked={isChecked.master} onChange={(e) => setIsChecked(prev => ({ ...prev, master: e.target.checked }))} />
                                     <label htmlFor="master">Магистратура</label>
                                 </div>
+                                <div className="filter_item">
+                                    <input type="checkbox" className="checkbox" id="speciality"
+                                        checked={isChecked.speciality} onChange={(e) => setIsChecked(prev => ({ ...prev, speciality: e.target.checked }))} />
+                                    <label htmlFor="speciality">Специалитет</label>
+                                </div>
                             </div>
                         </div>
                         <div className="list-direction_items">
-                            {filteredDirections && filteredDirections.map(d => (
+                            {filteredProfiles && filteredProfiles.map(p => (
                                 <Link
-                                    to={`/directions/direction/${d.id}`}
+                                    to={`/directions/direction/${p.id}`}
                                     state={{ directionsId }}
-                                    key={d.id}
+                                    key={p.id}
                                     className="list-direction_items-card">
                                     <div className="card-title">
-                                        <h3>{d.name}</h3>
-                                        <p>{d.form === 'магистратура' ? 'магистр' : 'бакалавр'}
+                                        <h3>{p.nameDirection}</h3>
+                                        <p>{p.specificationsList[0].levelEducation == 0 ? 'бакалавр' : p.specificationsList[0].levelEducation == 1 ? 'магистр': 'специалист'}
                                             <i className='bx bx-right-arrow-alt' ></i></p>
                                     </div>
-                                    <div className="card-desc">{d.profile}</div>
-                                    <span className="card-mark">{nameDirection}</span>
+                                    <div className="card-desc">{p.name}</div>
+                                    <span className="card-mark">{nameGeneralDirection}</span>
                                 </Link>
                             ))}
                         </div>
