@@ -16,7 +16,7 @@ function Main() {
             <div className="container">
                 <div className="navigation">
                     <ul>
-                        <li><span>Главная</span> <i className='bx bx-chevron-right'></i></li>
+                        <li><span>Главная</span> <i className='bx bx-chevron-right'> </i></li>
                         <li>Абитуриенту</li>
                     </ul>
                 </div>

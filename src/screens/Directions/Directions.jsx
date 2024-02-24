@@ -23,7 +23,7 @@ function Directions() {
             setFilteredProfiles(profiles.filter(p => p.specificationsList[0].levelEducation === 0))
         } else if (isChecked.master) {  //магистратура
             setFilteredProfiles(profiles.filter(p => p.specificationsList[0].levelEducation === 1))
-        }else if (isChecked.speciality) {  //специалитет
+        } else if (isChecked.speciality) {  //специалитет
             setFilteredProfiles(profiles.filter(p => p.specificationsList[0].levelEducation === 2))
             console.log(filteredProfiles)
         }
@@ -40,14 +40,15 @@ function Directions() {
         await axios({ method: "get", url: "https://localhost:7085/api/Direction/GetByGeneralDirection?id=" + directionsId })
             .then((e) => {
                 console.log(e.data);
-                let array_profiles = []
-                e.data.forEach((k)=> k.profiles.forEach((e)=>{e.nameDirection = k.name; array_profiles.push(e);}))
-                console.log(array_profiles);
-                setProfiles(array_profiles)
-                setFilteredProfiles(array_profiles)
-                setNameGeneralDirection(e.data[0].generalDirection.name)
+                if (e.data.length != 0) {
+                    let array_profiles = []
+                    e.data.forEach((k) => k.profiles.forEach((e) => { e.nameDirection = k.name; array_profiles.push(e); }))
+                    console.log(array_profiles);
+                    setProfiles(array_profiles)
+                    setFilteredProfiles(array_profiles)
+                    setNameGeneralDirection(e.data[0].generalDirection.name)                    
+                }
                 setIsLoading(false)
-
             })
             .catch((error) => {
                 console.log(error);
@@ -129,13 +130,13 @@ function Directions() {
                         <div className="list-direction_items">
                             {filteredProfiles && filteredProfiles.map(p => (
                                 <Link
-                                    to={`/directions/direction/${p.id}`}
+                                    to={`/directions/direction/${p.id}`}  //p.id directionsId
                                     state={{ directionsId }}
                                     key={p.id}
                                     className="list-direction_items-card">
                                     <div className="card-title">
                                         <h3>{p.nameDirection}</h3>
-                                        <p>{p.specificationsList[0].levelEducation == 0 ? 'бакалавр' : p.specificationsList[0].levelEducation == 1 ? 'магистр': 'специалист'}
+                                        <p>{p.specificationsList[0].levelEducation == 0 ? 'бакалавр' : p.specificationsList[0].levelEducation == 1 ? 'магистр' : 'специалист'}
                                             <i className='bx bx-right-arrow-alt' ></i></p>
                                     </div>
                                     <div className="card-desc">{p.name}</div>
